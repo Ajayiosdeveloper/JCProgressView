@@ -17,17 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmz-Y2-2BK">
-                                <rect key="frame" x="251" y="520" width="99" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="cdr-iN-vMe"/>
-                                    <constraint firstAttribute="height" constant="30" id="p6V-l9-ykL"/>
-                                </constraints>
-                                <state key="normal" title="Start Progress"/>
-                                <connections>
-                                    <action selector="startAnimatingCirculaRing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLR-Mq-koa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2II-D7-qaD">
                                 <rect key="frame" x="241" y="562" width="118" height="30"/>
                                 <constraints>
@@ -47,6 +36,17 @@
                                     <constraint firstAttribute="height" constant="200" id="HWF-qY-rbB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmz-Y2-2BK">
+                                <rect key="frame" x="251" y="524" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="cdr-iN-vMe"/>
+                                    <constraint firstAttribute="height" constant="30" id="p6V-l9-ykL"/>
+                                </constraints>
+                                <state key="normal" title="Start Progress"/>
+                                <connections>
+                                    <action selector="startAnimatingCirculaRing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLR-Mq-koa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,7 +55,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2II-D7-qaD" secondAttribute="bottom" constant="8" id="W1Z-ZA-Kih"/>
                             <constraint firstItem="8WP-Qy-2vY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="onY-ZG-aPo"/>
                             <constraint firstItem="2II-D7-qaD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xEF-aB-0F1"/>
-                            <constraint firstItem="2II-D7-qaD" firstAttribute="top" secondItem="Dmz-Y2-2BK" secondAttribute="bottom" constant="12" id="yOy-Yy-l73"/>
+                            <constraint firstItem="2II-D7-qaD" firstAttribute="top" secondItem="Dmz-Y2-2BK" secondAttribute="bottom" constant="8" id="yOy-Yy-l73"/>
                         </constraints>
                     </view>
                     <connections>
