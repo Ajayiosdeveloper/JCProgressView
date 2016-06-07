@@ -23,13 +23,18 @@ public class JCProgressView: UIView {
     
     //requirements. ProgressColorLocations must contains atleast two 
     
-    //colors.
+    //values (0 - 1.0).
 
     
     public var allowsMultipleColors = true // set this to false to avoid multicolor ring
     
-    public var progressColor: UIColor? // set this to have a single colored progress View. if it is nil then default color will be 
-        //taken
+    public var allowsFadeAnimation = true // set this false to avoid fade animation
+    
+    public var progressColor: UIColor? // set this value to have a user defined single colored progress View. if it is nil then default color will be taken
+    
+    public var duration: Double = 1.0
+    
+    public var progressBackgroundColor:UIColor = UIColor.clearColor()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,9 +67,10 @@ public class JCProgressView: UIView {
         
         circularLayer.path = path.CGPath
         circularLayer.lineWidth = self.frame.width/4
-        circularLayer.fillColor =  defaultBackGroundColor.CGColor
+        circularLayer.fillColor =  progressBackgroundColor.CGColor
         circularLayer.lineCap = kCALineCapRound
-        circularLayer.strokeColor = UIColor(red: 0.8078, green: 0.2549, blue: 0.2392, alpha: 1.0).CGColor
+        circularLayer.strokeColor = UIColor.whiteColor().CGColor
+    
     }
     
     /* adding Annimation to the strokeEnd property of the CAShapeLayer*/
@@ -75,7 +81,7 @@ public class JCProgressView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = CGFloat(0.1)
         animation.toValue = CGFloat(1.0)
-        animation.duration = 1.0
+        animation.duration = duration
         animation.removedOnCompletion = false
         animation.repeatCount = HUGE
         animation.fillMode = kCAFillModeForwards
@@ -83,6 +89,18 @@ public class JCProgressView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
         circularLayer.addAnimation(animation, forKey: "strokeEnd")
        
+        if allowsFadeAnimation{
+          addFadeAnimation()
+        }
+    }
+    
+    private func addFadeAnimation(){
+        
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.toValue = 0.7
+        fadeAnimation.duration = 2.0
+        fadeAnimation.repeatCount = HUGE
+        circularLayer.addAnimation(fadeAnimation, forKey: "flashAnimation")
     }
     
     /* Creating Gradient layer with multi colors and specified locations*/
@@ -152,7 +170,7 @@ public class JCProgressView: UIView {
     
     private func addGradientLayerToViewLayer(){
         
-        circularLayer.fillColor = defaultBackGroundColor.CGColor
+        circularLayer.fillColor = progressBackgroundColor.CGColor
         let gradientMaskLayer = gradientMask()
         gradientMaskLayer.mask = circularLayer
         gradientMaskLayer.cornerRadius = self.bounds.width/2
@@ -186,7 +204,4 @@ public class JCProgressView: UIView {
     
     }
     
- 
-
-
 }

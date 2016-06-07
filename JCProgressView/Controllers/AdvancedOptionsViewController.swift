@@ -16,7 +16,7 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     let choicePickerView = UIPickerView()
     
-    let choicesArray = ["Single Color", "Multi Color", "Default Single Color", "Default Multi Color"]
+    let choicesArray = ["Single Color", "Multi Color", "Default Single Color", "Default Multi Color","With out Fade"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,7 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        self.choiceTextField.text = choicesArray[row]
+       
         
         if let _ = progressView{
             
@@ -86,15 +86,21 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         switch row {
         case 0:
             showProgressViewWithSingleColor()
+            self.choiceTextField.text = "Single color with Fade Animation"
         case 1:
             showProgressViewWithMultiColors()
+            self.choiceTextField.text = "Multiple Colors with Background"
         case 2:
              showProgressViewWithSingleDefaultColr()
+             self.choiceTextField.text = "Default Single color with Fade Animation"
         case 3:
              showProgressViewWithMultiDefaultColors()
+             self.choiceTextField.text = "Default Multi colors with Fade Animation"
         default:
             
-            print("Never")
+            showProgressViewWithOutFadeAnimation()
+            
+            self.choiceTextField.text = "With Out Fade Animation"
         }
         
     }
@@ -138,6 +144,8 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         progressView.progressColorLocations = [0.1, 0.5, 07]
         
+        progressView.progressBackgroundColor = defaultBackGroundColor
+        
         self.view.addSubview(progressView)
         
         progressView.startAnimation()
@@ -163,6 +171,25 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
     
       choiceTextField.resignFirstResponder()
     
+    }
+    
+    func  showProgressViewWithOutFadeAnimation() {
+        
+        progressView = JCProgressView(frame: CGRectMake(self.view.frame.width/2,200, 100, 100))
+        
+        progressView.progressColors = [UIColor.blueColor(),UIColor.yellowColor(),UIColor.purpleColor()]
+        
+        progressView.progressColorLocations = [0.1, 0.5, 07]
+    
+        progressView.allowsFadeAnimation = false
+        
+        self.view.addSubview(progressView)
+        
+        progressView.startAnimation()
+        
+        choiceTextField.resignFirstResponder()
+
+        
     }
     
 
