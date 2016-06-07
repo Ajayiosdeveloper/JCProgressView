@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Whe-Ck-HKc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--JCProgressView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JCProgressView" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmz-Y2-2BK">
+                                <rect key="frame" x="251" y="477" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="cdr-iN-vMe"/>
+                                    <constraint firstAttribute="height" constant="30" id="p6V-l9-ykL"/>
+                                </constraints>
+                                <state key="normal" title="Start Progress"/>
+                                <connections>
+                                    <action selector="startAnimatingCirculaRing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLR-Mq-koa"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2II-D7-qaD">
-                                <rect key="frame" x="241" y="562" width="118" height="30"/>
+                                <rect key="frame" x="241" y="515" width="118" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cyx-5Y-bio"/>
                                     <constraint firstAttribute="width" constant="118" id="uLb-q8-yIz"/>
@@ -32,39 +44,92 @@
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="BtN-9d-5a2"/>
-                                    <constraint firstAttribute="height" constant="200" id="HWF-qY-rbB"/>
+                                    <constraint firstAttribute="height" constant="200" id="A8m-hf-QKy"/>
+                                    <constraint firstAttribute="width" constant="200" id="qaX-MD-WSA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmz-Y2-2BK">
-                                <rect key="frame" x="251" y="524" width="99" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="cdr-iN-vMe"/>
-                                    <constraint firstAttribute="height" constant="30" id="p6V-l9-ykL"/>
-                                </constraints>
-                                <state key="normal" title="Start Progress"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbx-9p-ECE">
+                                <rect key="frame" x="211" y="553" width="179" height="30"/>
+                                <state key="normal" title="More Customised Options"/>
                                 <connections>
-                                    <action selector="startAnimatingCirculaRing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLR-Mq-koa"/>
+                                    <segue destination="wSA-5h-hQN" kind="show" id="mEk-3U-NUG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8WP-Qy-2vY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Jl-Jj-Q2H"/>
+                            <constraint firstItem="Pbx-9p-ECE" firstAttribute="centerX" secondItem="2II-D7-qaD" secondAttribute="centerX" id="CTh-7m-Chc"/>
                             <constraint firstItem="Dmz-Y2-2BK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QIj-TX-g0R"/>
-                            <constraint firstItem="8WP-Qy-2vY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="T0y-cK-yx4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2II-D7-qaD" secondAttribute="bottom" constant="8" id="W1Z-ZA-Kih"/>
-                            <constraint firstItem="8WP-Qy-2vY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="onY-ZG-aPo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2II-D7-qaD" secondAttribute="bottom" constant="55" id="W1Z-ZA-Kih"/>
+                            <constraint firstItem="8WP-Qy-2vY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oNd-hY-cxU"/>
+                            <constraint firstItem="Pbx-9p-ECE" firstAttribute="top" secondItem="2II-D7-qaD" secondAttribute="bottom" constant="8" symbolic="YES" id="poJ-bd-mjG"/>
                             <constraint firstItem="2II-D7-qaD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xEF-aB-0F1"/>
                             <constraint firstItem="2II-D7-qaD" firstAttribute="top" secondItem="Dmz-Y2-2BK" secondAttribute="bottom" constant="8" id="yOy-Yy-l73"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="JCProgressView" id="qVS-UO-hOp"/>
                     <connections>
                         <outlet property="circularRing" destination="8WP-Qy-2vY" id="b0I-CA-O3v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272" y="418"/>
+            <point key="canvasLocation" x="560" y="438"/>
+        </scene>
+        <!--Advanced Options View Controller-->
+        <scene sceneID="2rr-r5-L1B">
+            <objects>
+                <viewController id="wSA-5h-hQN" customClass="AdvancedOptionsViewController" customModule="JCProgressView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJn-r1-G6k"/>
+                        <viewControllerLayoutGuide type="bottom" id="FZD-Zk-ReR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FlN-kO-8vB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a choice" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rV0-Z9-amR">
+                                <rect key="frame" x="20" y="79" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZiP-Ra-Syq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rV0-Z9-amR" firstAttribute="leading" secondItem="FlN-kO-8vB" secondAttribute="leadingMargin" id="2Tp-2I-PSG"/>
+                            <constraint firstItem="rV0-Z9-amR" firstAttribute="trailing" secondItem="FlN-kO-8vB" secondAttribute="trailingMargin" id="DSd-34-Uhe"/>
+                            <constraint firstItem="rV0-Z9-amR" firstAttribute="top" secondItem="fJn-r1-G6k" secondAttribute="bottom" constant="15" id="wEo-84-pff"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="choiceTextField" destination="rV0-Z9-amR" id="gwA-pT-pqR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPd-dN-Gj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="438"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a5d-IO-QTY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whe-Ck-HKc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hCT-hB-jgF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2oB-fN-gfl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blR-3j-Sqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="438"/>
         </scene>
     </scenes>
 </document>
