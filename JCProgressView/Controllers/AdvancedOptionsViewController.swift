@@ -22,13 +22,10 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         super.viewDidLoad()
         
         self.title = "Isn't Cool?👍"
-        
-       choiceTextField.inputView = choicePickerView
-       choicePickerView.dataSource = self
+        choiceTextField.inputView = choicePickerView
+        choicePickerView.dataSource = self
         choicePickerView.delegate = self
         addDoneButtonToPicker()
-
-    // Do any additional setup after loading the view.
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -110,6 +107,8 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         progressView = JCProgressView(frame: CGRectMake(self.view.frame.width/2, 200, 100, 100))
         
         progressView.allowsMultipleColors = false
+        
+        progressView.duration = 3.0
         
         progressView.progressColor = UIColor.orangeColor()
         
