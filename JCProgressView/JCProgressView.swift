@@ -17,6 +17,8 @@ public class JCProgressView: UIView {
     
     public var progressColors:[UIColor]?
     
+    public var progressColorLocations:[Double]?
+    
     public var allowsMultipleColors = true
     
     public var progressColor: UIColor?
@@ -44,65 +46,98 @@ public class JCProgressView: UIView {
        
         let path = UIBezierPath(ovalInRect:rect)
         circularLayer.path = path.CGPath
-        circularLayer.lineWidth = 4
-        circularLayer.fillColor = nil
+        circularLayer.lineWidth = self.frame.width/4
+        circularLayer.fillColor =  defaultBackGroundColor.CGColor
         circularLayer.strokeColor = UIColor(red: 0.8078, green: 0.2549, blue: 0.2392, alpha: 1.0).CGColor
-        
-         let gradientMaskLayer = gradientMask()
-        
-         gradientMaskLayer.mask = circularLayer
-         layer.addSublayer(gradientMaskLayer)
-        
-        //self.layer.addSublayer(circularLayer)
     }
     
     private func animateCircle(){
     
-        circularLayer.strokeEnd = 0.0
+        circularLayer.strokeEnd = 0
         let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = CGFloat(0.0)
+        animation.fromValue = CGFloat(0.1)
         animation.toValue = CGFloat(1.0)
         animation.duration = 1.0
         animation.removedOnCompletion = false
         animation.repeatCount = HUGE
         animation.fillMode = kCAFillModeForwards
+        animation.autoreverses = false
+        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
         circularLayer.addAnimation(animation, forKey: "strokeEnd")
        
     }
     
     private func gradientMask() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
+        gradientLayer.frame = self.bounds
+        gradientLayer.allowsEdgeAntialiasing = true
         
-        gradientLayer.locations = [0.0, 0.5 ,1.0]
+        if  let _ = self.progressColors  where self.progressColors?.count > 1{
+            gradientLayer.colors = self.getArrayOfCgColor(self.progressColors!)
+        }else{
+            gradientLayer.colors = addDefaultColorsToCircle()
+        }
         
-        let colorTop: AnyObject = UIColor.redColor().CGColor
-        let middleColor:AnyObject = UIColor.yellowColor().CGColor
-        let colorBottom: AnyObject = UIColor.blueColor().CGColor
-        let arrayOfColors: [AnyObject] = [colorTop, middleColor,colorBottom]
-        gradientLayer.colors = arrayOfColors
-        
+        if  let _ = self.progressColorLocations where self.progressColorLocations?.count > 1{
+            gradientLayer.locations = self.progressColorLocations
+        }else{
+            gradientLayer.locations = addDefaultColorLocationsToCircle()
+        }
         return gradientLayer
     }
     
+    private func addDefaultColorsToCircle()->[AnyObject]{
+    
+        let colors = [UIColor.redColor().CGColor,UIColor.greenColor().CGColor,UIColor.orangeColor().CGColor,UIColor.yellowColor().CGColor]
+       return colors
+    }
+    
+    private func addDefaultColorLocationsToCircle()->[NSNumber]{
+        
+         let colorLocations = [0.0,0.3,0.6,0.9]
+     
+        return colorLocations
+    }
+    
+    private func getArrayOfCgColor(colors:[UIColor])->[CGColor]{
+      
+        var cgColorsArray = [CGColor]()
+        for color in colors{
+            
+            cgColorsArray.append(color.CGColor)
+        }
+       return cgColorsArray
+    }
     
     public func startAnimation(){
-    
+        
+        if let _ = self.layer.sublayers{
+            
+            for each in self.layer.sublayers!{
+       
+                each.removeFromSuperlayer()
+            }
+            addGradientLayerToView()
+        }else{
+          
+            addGradientLayerToView()
+        }
+        
         self.animateCircle()
+    }
+    
+    private func addGradientLayerToView(){
+        circularLayer.fillColor = defaultBackGroundColor.CGColor
+        let gradientMaskLayer = gradientMask()
+        gradientMaskLayer.mask = circularLayer
+        gradientMaskLayer.cornerRadius = self.bounds.width/2
+        layer.addSublayer(gradientMaskLayer)
     }
     
     public func stopAnimation(){
         
      circularLayer.removeAllAnimations()
-        
+     circularLayer.fillColor = nil
     }
-
-    /*
-     Only override drawRect: if you perform custom drawing.
-     An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-         Drawing code
-    }
-    */
 
 }
