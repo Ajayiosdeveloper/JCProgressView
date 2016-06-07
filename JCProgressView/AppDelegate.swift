@@ -1,4 +1,4 @@
-//
+//  That at the name of Jesus every knee should bow, of things in heaven, and things in earth and things under the earth; And that every tongue should confess that Jesus Christ is Lord, to the glory of God the Father.Amen. Phillippians 2: 10,11.
 //  AppDelegate.swift
 //  JCProgressView
 //

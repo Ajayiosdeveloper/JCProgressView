@@ -14,6 +14,7 @@
 		802E4D741D06C922006D6773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802E4D721D06C922006D6773 /* LaunchScreen.storyboard */; };
 		802E4D7F1D06C922006D6773 /* JCProgressViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E4D7E1D06C922006D6773 /* JCProgressViewTests.swift */; };
 		802E4D8A1D06C922006D6773 /* JCProgressViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E4D891D06C922006D6773 /* JCProgressViewUITests.swift */; };
+		802E4D981D06CA40006D6773 /* JCProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E4D971D06CA40006D6773 /* JCProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		802E4D851D06C922006D6773 /* JCProgressViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCProgressViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		802E4D891D06C922006D6773 /* JCProgressViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCProgressViewUITests.swift; sourceTree = "<group>"; };
 		802E4D8B1D06C922006D6773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		802E4D971D06CA40006D6773 /* JCProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				802E4D691D06C922006D6773 /* AppDelegate.swift */,
 				802E4D6B1D06C922006D6773 /* ViewController.swift */,
+				802E4D971D06CA40006D6773 /* JCProgressView.swift */,
 				802E4D6D1D06C922006D6773 /* Main.storyboard */,
 				802E4D701D06C922006D6773 /* Assets.xcassets */,
 				802E4D721D06C922006D6773 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802E4D981D06CA40006D6773 /* JCProgressView.swift in Sources */,
 				802E4D6C1D06C922006D6773 /* ViewController.swift in Sources */,
 				802E4D6A1D06C922006D6773 /* AppDelegate.swift in Sources */,
 			);
@@ -482,6 +486,7 @@
 				802E4D901D06C922006D6773 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		802E4D911D06C922006D6773 /* Build configuration list for PBXNativeTarget "JCProgressViewTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				802E4D931D06C922006D6773 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		802E4D941D06C922006D6773 /* Build configuration list for PBXNativeTarget "JCProgressViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				802E4D961D06C922006D6773 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
