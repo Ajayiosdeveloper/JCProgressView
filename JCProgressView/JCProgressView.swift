@@ -25,7 +25,6 @@ public class JCProgressView: UIView {
         super.init(frame: frame)
         self.backgroundColor = defaultBackGroundColor
         drawCircle(frame)
-    
     }
     
     public init(frame: CGRect,background:UIColor) {
