@@ -32,7 +32,6 @@ public class JCProgressView: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
         drawCircle(frame)
-        
     }
 
     required public init?(coder aDecoder: NSCoder) {
