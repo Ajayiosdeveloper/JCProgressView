@@ -8,6 +8,18 @@
 
 import UIKit
 
+
+public protocol JCProgressViewDelegate : class{
+    
+    func willStartAnimation()
+    
+    func willStopAnimation()
+    
+    func didStartAnimation()
+    
+    func didStopAnimation()
+}
+
 let defaultBackGroundColor = UIColor(colorLiteralRed:0, green: 127/255, blue: 231/255, alpha: 0.1) // As discussed in the requirements
 
 
@@ -36,6 +48,8 @@ public class JCProgressView: UIView {
     
     public var progressBackgroundColor:UIColor = UIColor.clearColor()
     
+    public weak var delegate:JCProgressViewDelegate?
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
@@ -57,6 +71,8 @@ public class JCProgressView: UIView {
         drawCircle(self.bounds)
     }
     
+    //MARK: Private Services
+    
     /* Drawing Circle using UIBezier Path with top as Start angle and adding to CAShapeLayer */
     
     private func drawCircle(rect:CGRect){
@@ -70,7 +86,6 @@ public class JCProgressView: UIView {
         circularLayer.fillColor =  progressBackgroundColor.CGColor
         circularLayer.lineCap = kCALineCapRound
         circularLayer.strokeColor = UIColor.whiteColor().CGColor
-    
     }
     
     /* adding Annimation to the strokeEnd property of the CAShapeLayer*/
@@ -88,7 +103,7 @@ public class JCProgressView: UIView {
         animation.autoreverses = false
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
         circularLayer.addAnimation(animation, forKey: "strokeEnd")
-       
+        
         if allowsFadeAnimation{
           addFadeAnimation()
         }
@@ -175,11 +190,15 @@ public class JCProgressView: UIView {
         gradientMaskLayer.mask = circularLayer
         gradientMaskLayer.cornerRadius = self.bounds.width/2
         layer.addSublayer(gradientMaskLayer)
+
+        
     }
     
-    /* Start and Stop Animation services exposed to API Users */
+  /* Start and Stop Animation services exposed to API Users */
     
-    public func startAnimation(){
+  //MARK: Public Services
+    
+    public func startAnimation(completion:()->Void){
         
         if let _ = self.layer.sublayers{
             
@@ -194,14 +213,23 @@ public class JCProgressView: UIView {
         }
         
            self.animateCircle()
-    }
-
-    
-    public func stopAnimation(){
+           completion()
         
-     circularLayer.removeAllAnimations()
-     circularLayer.fillColor = nil
+    }
     
+    
+    public func stopAnimation(completion:()->Void){
+        
+        if let _ = delegate{
+            delegate!.willStopAnimation()
+        }
+       circularLayer.removeAllAnimations()
+       circularLayer.fillColor = nil
+        if let _ = delegate{
+            delegate!.didStopAnimation()
+        }
+        
+        completion()
     }
     
 }

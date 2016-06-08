@@ -77,7 +77,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         if let _ = progressView{
             
-            progressView!.stopAnimation()
+            progressView!.stopAnimation(){
+                
+            }
         }
         
         switch row {
@@ -114,7 +116,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         self.view.addSubview(progressView)
         
-        progressView.startAnimation()
+        progressView.startAnimation(){
+            
+        }
         
         choiceTextField.resignFirstResponder()
     }
@@ -129,7 +133,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         self.view.addSubview(progressView)
         
-        progressView.startAnimation()
+        progressView.startAnimation(){
+            
+        }
         
         choiceTextField.resignFirstResponder()
         
@@ -147,7 +153,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         self.view.addSubview(progressView)
         
-        progressView.startAnimation()
+        progressView.startAnimation(){
+            
+        }
         
         choiceTextField.resignFirstResponder()
         
@@ -166,7 +174,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
     
      self.view.addSubview(progressView)
     
-      progressView.startAnimation()
+    progressView.startAnimation(){
+        
+    }
     
       choiceTextField.resignFirstResponder()
     
@@ -184,7 +194,9 @@ class AdvancedOptionsViewController: UIViewController,UIPickerViewDelegate,UIPic
         
         self.view.addSubview(progressView)
         
-        progressView.startAnimation()
+        progressView.startAnimation(){
+            
+        }
         
         choiceTextField.resignFirstResponder()
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,JCProgressViewDelegate {
 
     @IBOutlet var circularRing: JCProgressView!
    
@@ -18,9 +18,12 @@ class ViewController: UIViewController {
         
         //Adding Progress View from StrorBoard
         
-        circularRing.progressColors = [UIColor.redColor(), UIColor.blueColor()]
+        circularRing.progressColors = [UIColor.redColor(),UIColor.blueColor()]
         circularRing.progressColorLocations = [0.1,1.0]
         
+        /* set delegate to get call backs from JCProgressView*/
+        
+        //circularRing.delegate = self
       }
 
     override func didReceiveMemoryWarning() {
@@ -30,15 +33,41 @@ class ViewController: UIViewController {
     
     @IBAction func startAnimatingCirculaRing(sender: AnyObject) {
 
-        circularRing.startAnimation()
+        circularRing.startAnimation(){
+            
+            print("Animation Started")
+        }
     }
     
     
     @IBAction func dismissAnimation(sender: AnyObject) {
         
-        circularRing.stopAnimation()
+        circularRing.stopAnimation(){
+            
+            print("Animation Stopped")
+        }
+    }
+    
+    //MARK: JCProgressView Delegate
+    
+    func willStopAnimation() {
+        
+        print("willStopAnimation")
+    }
+   
+    func didStopAnimation() {
+        
+          print("didStopAnimation")
     }
 
-
+    func willStartAnimation() {
+        
+          print("willStartAnimation")
+    }
+    
+    func didStartAnimation() {
+        
+          print("didStartAnimation")
+    }
 }
 
