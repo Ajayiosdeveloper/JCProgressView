@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8026604C1D07FDD1006AE707 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 8026604B1D07FDD1006AE707 /* Readme.md */; };
 		802E4D6A1D06C922006D6773 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E4D691D06C922006D6773 /* AppDelegate.swift */; };
 		802E4D6F1D06C922006D6773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802E4D6D1D06C922006D6773 /* Main.storyboard */; };
 		802E4D711D06C922006D6773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 802E4D701D06C922006D6773 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8026604B1D07FDD1006AE707 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		802E4D661D06C921006D6773 /* JCProgressView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCProgressView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		802E4D691D06C922006D6773 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		802E4D6E1D06C922006D6773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		802E4D5D1D06C921006D6773 = {
 			isa = PBXGroup;
 			children = (
+				8026604B1D07FDD1006AE707 /* Readme.md */,
 				802E4D991D06E19D006D6773 /* QuartzCore.framework */,
 				802E4D681D06C922006D6773 /* JCProgressView */,
 				802E4D7D1D06C922006D6773 /* JCProgressViewTests */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8026604C1D07FDD1006AE707 /* Readme.md in Sources */,
 				8072AA2A1D0763F100B68DA3 /* AdvancedOptionsViewController.swift in Sources */,
 				802E4D981D06CA40006D6773 /* JCProgressView.swift in Sources */,
 				8072AA2B1D0763F100B68DA3 /* ViewController.swift in Sources */,
